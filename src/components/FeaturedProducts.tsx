@@ -14,7 +14,7 @@ const FeaturedProducts = () => {
       originalPrice: 19999,
       rating: 4.8,
       reviews: 124,
-      image: '/placeholder.svg',
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       badge: 'Bestseller',
       isB2B: false
     },
@@ -26,7 +26,7 @@ const FeaturedProducts = () => {
       originalPrice: 55999,
       rating: 4.9,
       reviews: 89,
-      image: '/placeholder.svg',
+      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       badge: 'New',
       isB2B: false
     },
@@ -38,7 +38,7 @@ const FeaturedProducts = () => {
       originalPrice: 16999,
       rating: 4.7,
       reviews: 156,
-      image: '/placeholder.svg',
+      image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       badge: 'Sale',
       isB2B: false
     },
@@ -50,7 +50,7 @@ const FeaturedProducts = () => {
       originalPrice: 42999,
       rating: 4.8,
       reviews: 78,
-      image: '/placeholder.svg',
+      image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       badge: 'Featured',
       isB2B: false
     },
@@ -62,7 +62,7 @@ const FeaturedProducts = () => {
       originalPrice: 89999,
       rating: 4.6,
       reviews: 45,
-      image: '/placeholder.svg',
+      image: 'https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       badge: 'B2B',
       isB2B: true
     },
@@ -74,7 +74,7 @@ const FeaturedProducts = () => {
       originalPrice: 34999,
       rating: 4.9,
       reviews: 67,
-      image: '/placeholder.svg',
+      image: 'https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       badge: 'Premium',
       isB2B: false
     }

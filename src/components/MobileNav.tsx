@@ -3,9 +3,15 @@ import React, { useState } from 'react';
 import { Search, User, ShoppingCart, Home, Grid3X3, Heart, UserCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { useNavigate } from 'react-router-dom';
 
 const MobileNav = () => {
   const [cartCount, setCartCount] = useState(0);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
 
   return (
     <>
@@ -13,7 +19,7 @@ const MobileNav = () => {
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm border-b z-50">
         <div className="flex items-center justify-between px-4 py-3">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={() => handleNavigation('/')}>
             <img 
               src="/lovable-uploads/37602a25-3493-42ce-8d4a-ff446e19d8c8.png" 
               alt="Kurchi" 
@@ -23,13 +29,13 @@ const MobileNav = () => {
 
           {/* Search and Cart */}
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => handleNavigation('/search')}>
               <Search className="h-5 w-5 text-gray-600" />
             </Button>
-            <Button variant="ghost" size="sm" className="relative">
+            <Button variant="ghost" size="sm" className="relative" onClick={() => handleNavigation('/wishlist')}>
               <ShoppingCart className="h-5 w-5 text-gray-600" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-kurchi-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -45,15 +51,15 @@ const MobileNav = () => {
                   <SheetTitle>Account</SheetTitle>
                 </SheetHeader>
                 <div className="mt-6 space-y-4">
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button variant="outline" className="w-full justify-start" onClick={() => handleNavigation('/profile')}>
                     <UserCircle className="h-4 w-4 mr-2" />
                     Sign In
                   </Button>
                   <div className="space-y-2">
-                    <a href="/orders" className="block py-2 text-gray-700">My Orders</a>
-                    <a href="/wishlist" className="block py-2 text-gray-700">Wishlist</a>
-                    <a href="/profile" className="block py-2 text-gray-700">Profile</a>
-                    <a href="/support" className="block py-2 text-gray-700">Support</a>
+                    <button onClick={() => handleNavigation('/orders')} className="block py-2 text-gray-700 w-full text-left hover:text-red-600 transition-colors">My Orders</button>
+                    <button onClick={() => handleNavigation('/wishlist')} className="block py-2 text-gray-700 w-full text-left hover:text-red-600 transition-colors">Wishlist</button>
+                    <button onClick={() => handleNavigation('/profile')} className="block py-2 text-gray-700 w-full text-left hover:text-red-600 transition-colors">Profile</button>
+                    <button onClick={() => handleNavigation('/support')} className="block py-2 text-gray-700 w-full text-left hover:text-red-600 transition-colors">Support</button>
                   </div>
                 </div>
               </SheetContent>
@@ -65,26 +71,26 @@ const MobileNav = () => {
       {/* Bottom Navigation */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-50">
         <div className="flex items-center justify-around py-2">
-          <a href="/" className="flex flex-col items-center p-2">
-            <Home className="h-5 w-5 text-kurchi-red" />
-            <span className="text-xs text-kurchi-red mt-1">Home</span>
-          </a>
-          <a href="/categories" className="flex flex-col items-center p-2">
+          <button onClick={() => handleNavigation('/')} className="flex flex-col items-center p-2">
+            <Home className="h-5 w-5 text-red-600" />
+            <span className="text-xs text-red-600 mt-1">Home</span>
+          </button>
+          <button onClick={() => handleNavigation('/categories')} className="flex flex-col items-center p-2">
             <Grid3X3 className="h-5 w-5 text-gray-500" />
             <span className="text-xs text-gray-500 mt-1">Categories</span>
-          </a>
-          <a href="/search" className="flex flex-col items-center p-2">
+          </button>
+          <button onClick={() => handleNavigation('/search')} className="flex flex-col items-center p-2">
             <Search className="h-5 w-5 text-gray-500" />
             <span className="text-xs text-gray-500 mt-1">Search</span>
-          </a>
-          <a href="/wishlist" className="flex flex-col items-center p-2">
+          </button>
+          <button onClick={() => handleNavigation('/wishlist')} className="flex flex-col items-center p-2">
             <Heart className="h-5 w-5 text-gray-500" />
             <span className="text-xs text-gray-500 mt-1">Wishlist</span>
-          </a>
-          <a href="/profile" className="flex flex-col items-center p-2">
+          </button>
+          <button onClick={() => handleNavigation('/profile')} className="flex flex-col items-center p-2">
             <UserCircle className="h-5 w-5 text-gray-500" />
             <span className="text-xs text-gray-500 mt-1">Profile</span>
-          </a>
+          </button>
         </div>
       </div>
     </>
