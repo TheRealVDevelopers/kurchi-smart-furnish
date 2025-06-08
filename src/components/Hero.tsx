@@ -1,9 +1,36 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Shield, Truck, Headphones } from 'lucide-react';
+import { ArrowRight, Star, Shield, Truck, Headphones, ShoppingBag, Ruler } from 'lucide-react';
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const heroImages = [
+    {
+      url: "https://images.unsplash.com/photo-1616627982181-98a1927b15d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tagline: "Seating Redefined. Comfort Delivered.",
+      alt: "Modern Living Room with Premium Furniture"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tagline: "Premium Furniture for Work & Life",
+      alt: "Executive Office Chair"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1626727141774-cc998e8306c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tagline: "Ergonomic Excellence. Every Day.",
+      alt: "Modern Office Setup"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative bg-gradient-to-br from-red-50 via-white to-red-50 py-16 md:py-20 overflow-hidden">
       {/* Background Elements */}
@@ -31,6 +58,10 @@ const Hero = () => {
                 </span>
               </h1>
               
+              <p className="text-xl text-red-600 font-medium italic">
+                {heroImages[currentImageIndex].tagline}
+              </p>
+              
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-lg">
                 Discover premium furniture crafted for modern living. From ergonomic office chairs to luxury sofas, 
                 experience furniture that adapts to your lifestyle with AI-powered recommendations.
@@ -53,42 +84,59 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                Explore Furniture
+                <ShoppingBag className="mr-2 h-5 w-5" />
+                Shop Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" size="lg" className="border-2 border-gray-300 hover:border-red-600 px-8 py-4 text-lg rounded-xl transition-all duration-300">
-                Custom Design
+                <Ruler className="mr-2 h-5 w-5" />
+                Custom Order
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-1">50K+</div>
-                <div className="text-sm text-gray-600">Happy Customers</div>
+                <div className="text-3xl font-bold text-gray-900 mb-1">15K+</div>
+                <div className="text-sm text-gray-600">Chairs Delivered</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-1">1000+</div>
-                <div className="text-sm text-gray-600">Furniture Designs</div>
+                <div className="text-3xl font-bold text-gray-900 mb-1">650+</div>
+                <div className="text-sm text-gray-600">Workspaces Transformed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-1">100+</div>
-                <div className="text-sm text-gray-600">Cities Served</div>
+                <div className="text-3xl font-bold text-gray-900 mb-1">900+</div>
+                <div className="text-sm text-gray-600">Monthly Orders</div>
               </div>
             </div>
           </div>
 
-          {/* Right Content - Hero Image */}
+          {/* Right Content - Auto-rotating Hero Images */}
           <div className="relative">
             <div className="relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1616627982181-98a1927b15d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Modern Living Room with Premium Furniture"
-                className="w-full h-[500px] object-cover rounded-3xl shadow-2xl"
-              />
+              <div className="relative overflow-hidden rounded-3xl">
+                <img 
+                  src={heroImages[currentImageIndex].url}
+                  alt={heroImages[currentImageIndex].alt}
+                  className="w-full h-[500px] object-cover transition-all duration-1000 ease-in-out"
+                />
+                
+                {/* Image indicators */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {heroImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
               
               {/* Floating Elements */}
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 animate-bounce">
