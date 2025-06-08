@@ -9,6 +9,7 @@ import FeaturedProducts from '@/components/FeaturedProducts';
 import Testimonials from '@/components/Testimonials';
 import CustomRequestSection from '@/components/CustomRequestSection';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
         <CustomRequestSection />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
