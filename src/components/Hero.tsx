@@ -18,8 +18,8 @@ const Hero = () => {
       alt: "Executive Office Chair"
     },
     {
-      url: "https://plus.unsplash.com/premium_photo-1705169612592-32610774a5d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhaXJ8ZW58MHx8MHx8fDA%3D"
-     tagline: "Ergonomic Excellence. Every Day.",
+      url: "https://plus.unsplash.com/premium_photo-1705169612592-32610774a5d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhaXJ8ZW58MHx8MHx8fDA%3D",
+      tagline: "Ergonomic Excellence. Every Day.",
       alt: "Modern Office Setup"
     }
   ];
