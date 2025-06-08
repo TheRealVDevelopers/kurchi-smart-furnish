@@ -9,49 +9,43 @@ const CategorySection = () => {
       id: 1,
       name: 'Executive Chairs',
       description: 'Premium office seating solutions',
-      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       productCount: '120+ Products',
       startingPrice: '₹8,999',
-      badge: 'Popular'
+      badge: 'Popular',
+      gradient: 'from-green-500 to-green-600'
     },
     {
       id: 2,
       name: 'Luxury Sofas',
       description: 'Comfort meets elegance',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       productCount: '80+ Products',
       startingPrice: '₹25,999',
-      badge: 'Premium'
+      badge: 'Premium',
+      gradient: 'from-purple-500 to-purple-600'
     },
     {
       id: 3,
       name: 'Gaming Chairs',
       description: 'Ultimate gaming experience',
-      image: 'https://images.unsplash.com/photo-1626727141774-cc998e8306c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: 'https://images.unsplash.com/photo-1592113854049-a25226b19a35?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       productCount: '45+ Products',
       startingPrice: '₹12,999',
-      badge: 'Trending'
+      badge: 'Trending',
+      gradient: 'from-orange-500 to-orange-600'
     },
     {
       id: 4,
       name: 'Dining Sets',
       description: 'Gather in style and comfort',
-      image: 'https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
       productCount: '60+ Products',
       startingPrice: '₹18,999',
-      badge: 'New'
+      badge: 'New',
+      gradient: 'from-blue-500 to-blue-600'
     }
   ];
-
-  const getBadgeColor = (badge: string) => {
-    switch (badge) {
-      case 'Popular': return 'bg-green-500';
-      case 'Premium': return 'bg-purple-500';
-      case 'Trending': return 'bg-orange-500';
-      case 'New': return 'bg-blue-500';
-      default: return 'bg-gray-500';
-    }
-  };
 
   return (
     <section className="py-20 bg-white">
@@ -68,7 +62,7 @@ const CategorySection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
-            <Card key={category.id} className="group cursor-pointer overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 bg-white">
+            <Card key={category.id} className="group cursor-pointer overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 bg-white border-0 shadow-lg">
               <div className="relative aspect-square overflow-hidden">
                 <img
                   src={category.image}
@@ -76,17 +70,17 @@ const CategorySection = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 
-                {/* Badge */}
-                <div className={`absolute top-4 left-4 ${getBadgeColor(category.badge)} text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg`}>
+                {/* Enhanced Badge */}
+                <div className={`absolute top-4 left-4 bg-gradient-to-r ${category.gradient} text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg`}>
                   {category.badge}
                 </div>
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Enhanced Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Quick View Button */}
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="w-full bg-white text-gray-900 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                  <button className="w-full bg-white text-gray-900 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-xl">
                     View Collection
                   </button>
                 </div>

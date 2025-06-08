@@ -5,8 +5,15 @@ import { Upload, MessageCircle, Palette, ArrowRight } from 'lucide-react';
 
 const CustomRequestSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-white rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-white rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white rounded-full animate-pulse delay-500"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
@@ -21,8 +28,8 @@ const CustomRequestSection = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start space-x-4 p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
                   <Upload className="h-6 w-6" />
                 </div>
                 <div>
@@ -31,8 +38,8 @@ const CustomRequestSection = () => {
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start space-x-4 p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
                   <MessageCircle className="h-6 w-6" />
                 </div>
                 <div>
@@ -41,8 +48,8 @@ const CustomRequestSection = () => {
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start space-x-4 p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
                   <Palette className="h-6 w-6" />
                 </div>
                 <div>
@@ -52,22 +59,22 @@ const CustomRequestSection = () => {
               </div>
             </div>
 
-            <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">
               Start Custom Request
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
 
-          {/* Right Content - Image */}
+          {/* Right Content - Enhanced Image */}
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              src="https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               alt="Custom Furniture Design Process"
               className="w-full h-[500px] object-cover rounded-3xl shadow-2xl"
             />
             
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-6 rounded-2xl shadow-xl max-w-xs">
+            {/* Enhanced Floating Card */}
+            <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-6 rounded-2xl shadow-2xl max-w-xs border border-gray-100">
               <div className="flex items-center space-x-3 mb-3">
                 <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                   <span className="text-green-600 text-lg">✓</span>
@@ -80,6 +87,9 @@ const CustomRequestSection = () => {
               <p className="text-sm text-gray-700">
                 "Exactly what we envisioned! Professional service from start to finish."
               </p>
+              <div className="flex text-yellow-400 mt-2">
+                ⭐⭐⭐⭐⭐
+              </div>
             </div>
           </div>
         </div>
