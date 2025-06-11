@@ -5,7 +5,7 @@ import { MessageCircle, Sparkles, ArrowRight } from 'lucide-react';
 
 const KBuddyCTASection = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-red-600 via-red-700 to-red-800 text-white relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-kurchi-red via-kurchi-red-muted to-kurchi-red text-white relative overflow-hidden">
       {/* Enhanced background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse"></div>
@@ -23,41 +23,41 @@ const KBuddyCTASection = () => {
                 <span className="text-3xl">🪑</span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold">Meet K-Buddy</h3>
-                <p className="text-red-100">Your Smart Furnishing Assistant</p>
+                <h3 className="text-2xl font-bold">Meet KURCHI Assistant</h3>
+                <p className="text-white/90">Your Smart <span className="font-sanskrit">कुर्ची</span> Expert</p>
               </div>
             </div>
             
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Need Help Finding the Perfect Furniture?
+              Need Help Finding the Perfect <span className="font-sanskrit text-kurchi-saffron">कुर्ची</span>?
             </h2>
             
-            <p className="text-xl text-red-100 leading-relaxed">
-              K-Buddy is here to help! Get instant recommendations, upload custom designs, 
-              track orders, or connect with our sales experts - all in one smart chat experience.
+            <p className="text-xl text-white/90 leading-relaxed">
+              KURCHI Assistant is here to help! Get instant recommendations based on Sanskrit chair philosophy, 
+              upload custom designs, track orders, or connect with our expert craftsmen - all in one smart chat experience.
             </p>
             
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Sparkles className="h-5 w-5 text-yellow-300" />
-                <span>AI-powered furniture recommendations</span>
+                <Sparkles className="h-5 w-5 text-kurchi-saffron" />
+                <span>AI-powered <span className="font-sanskrit">कुर्ची</span> recommendations</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Sparkles className="h-5 w-5 text-yellow-300" />
+                <Sparkles className="h-5 w-5 text-kurchi-saffron" />
                 <span>Instant custom request processing</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Sparkles className="h-5 w-5 text-yellow-300" />
-                <span>24/7 support & order tracking</span>
+                <Sparkles className="h-5 w-5 text-kurchi-saffron" />
+                <span>24/7 support & 100-day trial tracking</span>
               </div>
             </div>
             
             <Button 
               size="lg" 
-              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white text-kurchi-red hover:bg-kurchi-cream px-8 py-4 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
-              Chat with K-Buddy
+              Chat with KURCHI Assistant
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
@@ -67,11 +67,11 @@ const KBuddyCTASection = () => {
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 shadow-2xl">
               <div className="bg-white rounded-2xl p-6 shadow-2xl">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-kurchi-cream rounded-full flex items-center justify-center">
                     <span className="text-xl">🪑</span>
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">K-Buddy</div>
+                    <div className="text-sm font-semibold text-kurchi-navy">KURCHI Assistant</div>
                     <div className="text-xs text-green-600 flex items-center">
                       <div className="w-2 h-2 bg-green-500 rounded-full mr-1 animate-pulse"></div>
                       Online now
@@ -80,22 +80,22 @@ const KBuddyCTASection = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <div className="bg-gradient-to-r from-gray-100 to-gray-50 p-3 rounded-lg text-sm text-gray-800 border border-gray-200">
-                    Hi! I'm K-Buddy 🪑 How can I help you find the perfect furniture today?
+                  <div className="bg-gradient-to-r from-kurchi-cream to-kurchi-saffron/20 p-3 rounded-lg text-sm text-kurchi-navy border border-kurchi-saffron/30">
+                    <span className="font-sanskrit">नमस्ते!</span> I'm KURCHI Assistant 🪑 How can I help you find the perfect chair today?
                   </div>
                   
                   <div className="grid grid-cols-2 gap-2">
-                    <button className="bg-red-50 text-red-700 p-2 rounded-lg text-xs font-medium hover:bg-red-100 transition-colors border border-red-200">
-                      🪑 Suggest Chairs
+                    <button className="bg-kurchi-red/10 text-kurchi-red p-2 rounded-lg text-xs font-medium hover:bg-kurchi-red/20 transition-colors border border-kurchi-red/30">
+                      🪑 Sanskrit Chairs
                     </button>
                     <button className="bg-blue-50 text-blue-700 p-2 rounded-lg text-xs font-medium hover:bg-blue-100 transition-colors border border-blue-200">
                       📷 Custom Request
                     </button>
                     <button className="bg-green-50 text-green-700 p-2 rounded-lg text-xs font-medium hover:bg-green-100 transition-colors border border-green-200">
-                      🏢 Bulk Order
+                      🏢 B2B Orders
                     </button>
                     <button className="bg-purple-50 text-purple-700 p-2 rounded-lg text-xs font-medium hover:bg-purple-100 transition-colors border border-purple-200">
-                      📦 Track Order
+                      📦 100-Day Trial
                     </button>
                   </div>
                 </div>

@@ -26,7 +26,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#E53E3E',
+					DEFAULT: 'hsl(var(--kurchi-red))',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
@@ -64,9 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				kurchi: {
-					red: '#E53E3E',
-					'red-light': '#FED7D7',
-					'red-dark': '#C53030'
+					navy: 'hsl(var(--kurchi-navy))',
+					red: 'hsl(var(--kurchi-red))',
+					'red-muted': 'hsl(var(--kurchi-red-muted))',
+					cream: 'hsl(var(--kurchi-cream))',
+					saffron: 'hsl(var(--kurchi-saffron))'
 				}
 			},
 			borderRadius: {
@@ -110,16 +112,29 @@ export default {
 						transform: 'scale(1)',
 						opacity: '1'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					},
+					'50%': {
+						opacity: '0.8',
+						transform: 'scale(1.05)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
-				'scale-in': 'scale-in 0.2s ease-out'
+				'scale-in': 'scale-in 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif']
+				sans: ['Inter', 'sans-serif'],
+				inter: ['Inter', 'sans-serif'],
+				sanskrit: ['Tiro Devanagari Sanskrit', 'serif']
 			}
 		}
 	},
