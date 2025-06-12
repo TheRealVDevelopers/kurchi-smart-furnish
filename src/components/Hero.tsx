@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Shield, Truck, Headphones, ShoppingBag, Ruler, Factory, Package, Home } from 'lucide-react';
+import { ArrowRight, Star, Shield, Truck, Headphones, ShoppingBag, Ruler, Factory, Package, Home, User, Hammer, CheckCircle } from 'lucide-react';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
+  const [animationStep, setAnimationStep] = useState(0);
   
   const heroImages = [
     {
@@ -26,9 +27,46 @@ const Hero = () => {
   ];
 
   const manufacturingSteps = [
-    { icon: Factory, label: "Factory", color: "text-blue-600" },
-    { icon: Package, label: "Manufacturing", color: "text-orange-600" },
-    { icon: Home, label: "Your Home", color: "text-green-600" }
+    { 
+      icon: Hammer, 
+      label: "Crafting", 
+      color: "text-blue-600",
+      description: "🧑‍🏭 Expert craftsmen create each piece"
+    },
+    { 
+      icon: Package, 
+      label: "Packing", 
+      color: "text-orange-600",
+      description: "📦 Careful packaging for safe delivery"
+    },
+    { 
+      icon: Truck, 
+      label: "Shipping", 
+      color: "text-purple-600",
+      description: "🚚 Direct delivery from our factory"
+    },
+    { 
+      icon: Home, 
+      label: "Your Home", 
+      color: "text-green-600",
+      description: "🏠 Perfect furniture in your space"
+    },
+    { 
+      icon: User, 
+      label: "Happy Customer", 
+      color: "text-kurchi-red",
+      description: "😊 100% satisfaction guaranteed"
+    }
+  ];
+
+  // Factory to Customer Animation Steps
+  const factoryAnimation = [
+    { icon: "🧑‍🏭", text: "Crafting with Care" },
+    { icon: "🔨", text: "Quality Checking" },
+    { icon: "📦", text: "Secure Packaging" },
+    { icon: "🚛", text: "Direct Shipping" },
+    { icon: "🏠", text: "Home Delivery" },
+    { icon: "😊", text: "Happy Customer" }
   ];
 
   useEffect(() => {
@@ -43,6 +81,13 @@ const Hero = () => {
       setCurrentStep((prev) => (prev + 1) % manufacturingSteps.length);
     }, 2000);
     return () => clearInterval(stepInterval);
+  }, []);
+
+  useEffect(() => {
+    const animationInterval = setInterval(() => {
+      setAnimationStep((prev) => (prev + 1) % factoryAnimation.length);
+    }, 1500);
+    return () => clearInterval(animationInterval);
   }, []);
 
   return (
@@ -93,24 +138,36 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* Manufacturing Journey Animation */}
+            {/* Enhanced Factory to Customer Animation */}
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-kurchi-saffron/30">
-              <h3 className="text-lg font-semibold text-kurchi-navy mb-4 text-center">Our Journey</h3>
-              <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-kurchi-navy mb-4 text-center">🏭 Factory to Customer Journey</h3>
+              
+              {/* Animated Steps Display */}
+              <div className="text-center mb-4">
+                <div className="text-3xl mb-2 animate-bounce">
+                  {factoryAnimation[animationStep].icon}
+                </div>
+                <p className="text-sm font-medium text-kurchi-red">
+                  {factoryAnimation[animationStep].text}
+                </p>
+              </div>
+
+              {/* Progress Steps */}
+              <div className="flex items-center justify-between mb-4">
                 {manufacturingSteps.map((step, index) => {
                   const IconComponent = step.icon;
                   return (
                     <div key={index} className="flex flex-col items-center space-y-2">
-                      <div className={`w-16 h-16 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
+                      <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
                         currentStep === index 
-                          ? 'border-kurchi-red bg-kurchi-red/10 scale-110' 
+                          ? 'border-kurchi-red bg-kurchi-red/10 scale-110 shadow-lg' 
                           : 'border-gray-300 bg-gray-50'
                       }`}>
-                        <IconComponent className={`h-8 w-8 transition-colors duration-500 ${
+                        <IconComponent className={`h-6 w-6 transition-colors duration-500 ${
                           currentStep === index ? 'text-kurchi-red' : 'text-gray-400'
                         }`} />
                       </div>
-                      <span className={`text-sm font-medium transition-colors duration-500 ${
+                      <span className={`text-xs font-medium transition-colors duration-500 text-center ${
                         currentStep === index ? 'text-kurchi-red' : 'text-gray-500'
                       }`}>
                         {step.label}
@@ -119,12 +176,19 @@ const Hero = () => {
                   );
                 })}
               </div>
-              <div className="mt-4 bg-gray-200 h-2 rounded-full overflow-hidden">
+
+              {/* Animated Progress Bar */}
+              <div className="bg-gray-200 h-2 rounded-full overflow-hidden mb-2">
                 <div 
                   className="h-full bg-gradient-to-r from-kurchi-red to-kurchi-red-muted rounded-full transition-all duration-2000"
                   style={{ width: `${((currentStep + 1) / manufacturingSteps.length) * 100}%` }}
                 ></div>
               </div>
+
+              {/* Current Step Description */}
+              <p className="text-center text-xs text-kurchi-navy/70">
+                {manufacturingSteps[currentStep].description}
+              </p>
             </div>
 
             {/* Enhanced Trust Indicators */}
@@ -204,7 +268,9 @@ const Hero = () => {
               <div className="absolute -top-6 -right-6 bg-gradient-to-br from-white to-kurchi-cream rounded-2xl shadow-2xl p-6 animate-bounce border border-kurchi-saffron/30">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-kurchi-saffron/20 to-kurchi-saffron/30 rounded-full flex items-center justify-center">
-                    <span className="text-kurchi-red text-xl">🪑</span>
+                    <svg className="w-6 h-6 text-kurchi-red" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.1 14.1 11 13 11V13H11V11C9.9 11 9 10.1 9 9V6.5L3 7V9H1V7C1 6.5 1.4 6 2 6L9 5.5V4C9 2.3 10.3 1 12 1S15 2.3 15 4V5.5L22 6C22.6 6 23 6.5 23 7V9H21ZM8 10V16C8 17.1 8.9 18 10 18H14C15.1 18 16 17.1 16 16V10H8ZM10 12H14V16H10V12ZM6 14V22H4V14H6ZM20 14V22H18V14H20Z"/>
+                    </svg>
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-kurchi-navy">KURCHI Assistant</div>

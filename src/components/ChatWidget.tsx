@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { X, Mic, Send, Upload, Package, User, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import Draggable from 'react-draggable';
 
 interface Message {
   id: string;
@@ -17,7 +18,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi there! I'm K-Buddy, your smart furnishing assistant! 🪑 How can I help you create your perfect space today?",
+      text: "Hi there! I'm KURCHI Assistant, your smart furnishing assistant! 🤖 How can I help you create your perfect space today?",
       isBot: true,
       timestamp: new Date()
     }
@@ -105,149 +106,158 @@ const ChatWidget = () => {
   };
 
   return (
-    <>
-      {/* Floating Chat Button */}
+    <Draggable handle=".drag-handle">
       <div className="fixed bottom-6 right-6 z-50">
+        {/* Floating Chat Button with Robot Icon */}
         {!isOpen && (
           <Button
             onClick={() => setIsOpen(true)}
-            className="w-16 h-16 rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+            className="drag-handle w-16 h-16 rounded-full bg-gradient-to-br from-kurchi-red via-kurchi-red-muted to-kurchi-red hover:from-kurchi-red-muted hover:to-kurchi-red shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 group cursor-move"
           >
-            <div className="text-2xl animate-bounce group-hover:animate-none">🪑</div>
-            {/* Pulse Ring */}
-            <div className="absolute inset-0 rounded-full bg-red-400 animate-ping opacity-75"></div>
+            {/* Robot Icon SVG */}
+            <svg className="w-8 h-8 text-white animate-bounce group-hover:animate-none" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.1 14.1 11 13 11V13H11V11C9.9 11 9 10.1 9 9V6.5L3 7V9H1V7C1 6.5 1.4 6 2 6L9 5.5V4C9 2.3 10.3 1 12 1S15 2.3 15 4V5.5L22 6C22.6 6 23 6.5 23 7V9H21ZM8 10V16C8 17.1 8.9 18 10 18H14C15.1 18 16 17.1 16 16V10H8ZM10 12H14V16H10V12ZM6 14V22H4V14H6ZM20 14V22H18V14H20Z"/>
+            </svg>
+            {/* Enhanced Pulse Ring */}
+            <div className="absolute inset-0 rounded-full bg-kurchi-red/30 animate-ping opacity-75"></div>
+            <div className="absolute inset-0 rounded-full bg-kurchi-red/20 animate-ping opacity-50 animation-delay-75"></div>
           </Button>
         )}
-      </div>
 
-      {/* Chat Panel */}
-      {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-96 h-[500px] bg-white/90 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-red-500 to-red-600 p-4 flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-xl">🪑</span>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold">K-Buddy</h3>
-                <p className="text-white/80 text-xs">Smart Furnishing Assistant</p>
-              </div>
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:bg-white/20"
-            >
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
-              >
-                <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
-                    message.isBot
-                      ? 'bg-gray-100 text-gray-900 rounded-bl-md'
-                      : 'bg-red-500 text-white rounded-br-md'
-                  }`}
-                >
-                  <p className="text-sm">{message.text}</p>
+        {/* Enhanced Chat Panel with Glassmorphism */}
+        {isOpen && (
+          <div className="w-96 h-[500px] bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            {/* Enhanced Header with Glassmorphism */}
+            <div className="drag-handle bg-gradient-to-r from-kurchi-red/90 to-kurchi-red-muted/90 backdrop-blur-lg p-4 flex items-center justify-between cursor-move border-b border-white/20">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30">
+                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V9C15 10.1 14.1 11 13 11V13H11V11C9.9 11 9 10.1 9 9V6.5L3 7V9H1V7C1 6.5 1.4 6 2 6L9 5.5V4C9 2.3 10.3 1 12 1S15 2.3 15 4V5.5L22 6C22.6 6 23 6.5 23 7V9H21ZM8 10V16C8 17.1 8.9 18 10 18H14C15.1 18 16 17.1 16 16V10H8ZM10 12H14V16H10V12ZM6 14V22H4V14H6ZM20 14V22H18V14H20Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold">KURCHI Assistant</h3>
+                  <p className="text-white/80 text-xs flex items-center">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
+                    Smart Furnishing Bot
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:bg-white/20 rounded-full"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
 
-          {/* Suggestions */}
-          {currentFlow === 'main' && (
-            <div className="p-4 border-t border-gray-100">
-              <div className="grid grid-cols-2 gap-2">
-                {suggestions.slice(0, 4).map((suggestion, index) => (
+            {/* Messages with Enhanced Glassmorphism */}
+            <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-white/5 backdrop-blur-sm">
+              {messages.map((message) => (
+                <div
+                  key={message.id}
+                  className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
+                >
+                  <div
+                    className={`max-w-[80%] p-3 rounded-2xl backdrop-blur-lg border ${
+                      message.isBot
+                        ? 'bg-white/90 text-kurchi-navy border-white/30 rounded-bl-md'
+                        : 'bg-kurchi-red/90 text-white border-kurchi-red/30 rounded-br-md'
+                    }`}
+                  >
+                    <p className="text-sm">{message.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Enhanced Suggestions */}
+            {currentFlow === 'main' && (
+              <div className="p-4 border-t border-white/20 bg-white/5 backdrop-blur-sm">
+                <div className="grid grid-cols-2 gap-2">
+                  {suggestions.slice(0, 4).map((suggestion, index) => (
+                    <Button
+                      key={index}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleSuggestionClick(suggestion.action)}
+                      className="text-xs h-auto py-2 px-3 rounded-xl bg-white/10 border-white/30 text-kurchi-navy hover:bg-white/20 hover:border-white/50 transition-all backdrop-blur-sm"
+                    >
+                      <span className="mr-1">{suggestion.icon}</span>
+                      {suggestion.text}
+                    </Button>
+                  ))}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleSuggestionClick(suggestions[4].action)}
+                  className="w-full mt-2 text-xs h-auto py-2 px-3 rounded-xl bg-white/10 border-white/30 text-kurchi-navy hover:bg-white/20 hover:border-white/50 transition-all backdrop-blur-sm"
+                >
+                  <span className="mr-1">{suggestions[4].icon}</span>
+                  {suggestions[4].text}
+                </Button>
+              </div>
+            )}
+
+            {/* Custom Request Upload */}
+            {currentFlow === 'custom' && (
+              <div className="p-4 border-t border-white/20 bg-white/5 backdrop-blur-sm">
+                <div className="space-y-3">
                   <Button
-                    key={index}
                     variant="outline"
                     size="sm"
-                    onClick={() => handleSuggestionClick(suggestion.action)}
-                    className="text-xs h-auto py-2 px-3 rounded-xl hover:bg-red-50 hover:border-red-200 transition-all"
+                    className="w-full text-xs h-auto py-2 px-3 rounded-xl bg-white/10 border-white/30 text-kurchi-navy hover:bg-white/20 hover:border-white/50 transition-all backdrop-blur-sm"
                   >
-                    <span className="mr-1">{suggestion.icon}</span>
-                    {suggestion.text}
+                    <Upload className="h-3 w-3 mr-2" />
+                    Upload Reference Images
                   </Button>
-                ))}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentFlow('main')}
+                    className="w-full text-xs h-auto py-2 px-3 rounded-xl bg-white/10 border-white/30 text-kurchi-navy hover:bg-white/20 hover:border-white/50 transition-all backdrop-blur-sm"
+                  >
+                    Back to Main Menu
+                  </Button>
+                </div>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleSuggestionClick(suggestions[4].action)}
-                className="w-full mt-2 text-xs h-auto py-2 px-3 rounded-xl hover:bg-red-50 hover:border-red-200 transition-all"
-              >
-                <span className="mr-1">{suggestions[4].icon}</span>
-                {suggestions[4].text}
-              </Button>
-            </div>
-          )}
+            )}
 
-          {/* Custom Request Upload */}
-          {currentFlow === 'custom' && (
-            <div className="p-4 border-t border-gray-100">
-              <div className="space-y-3">
+            {/* Enhanced Input */}
+            <div className="p-4 border-t border-white/20 bg-white/5 backdrop-blur-sm">
+              <div className="flex items-center space-x-2">
+                <div className="flex-1 relative">
+                  <Input
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Type your message..."
+                    className="rounded-xl border-white/30 bg-white/10 backdrop-blur-sm focus:border-kurchi-red/50 pr-10 text-kurchi-navy placeholder:text-kurchi-navy/70"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-1 top-1 h-8 w-8 text-kurchi-navy/60 hover:text-kurchi-red"
+                  >
+                    <Mic className="h-4 w-4" />
+                  </Button>
+                </div>
                 <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-xs h-auto py-2 px-3 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all"
-                >
-                  <Upload className="h-3 w-3 mr-2" />
-                  Upload Reference Images
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentFlow('main')}
-                  className="w-full text-xs h-auto py-2 px-3 rounded-xl hover:bg-gray-50 hover:border-gray-200 transition-all"
-                >
-                  Back to Main Menu
-                </Button>
-              </div>
-            </div>
-          )}
-
-          {/* Input */}
-          <div className="p-4 border-t border-gray-100">
-            <div className="flex items-center space-x-2">
-              <div className="flex-1 relative">
-                <Input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Type your message..."
-                  className="rounded-xl border-gray-200 focus:border-red-300 pr-10"
-                />
-                <Button
-                  variant="ghost"
+                  onClick={handleSendMessage}
                   size="icon"
-                  className="absolute right-1 top-1 h-8 w-8 text-gray-400 hover:text-red-500"
+                  className="rounded-xl bg-kurchi-red hover:bg-kurchi-red-muted backdrop-blur-sm"
                 >
-                  <Mic className="h-4 w-4" />
+                  <Send className="h-4 w-4" />
                 </Button>
               </div>
-              <Button
-                onClick={handleSendMessage}
-                size="icon"
-                className="rounded-xl bg-red-500 hover:bg-red-600"
-              >
-                <Send className="h-4 w-4" />
-              </Button>
             </div>
           </div>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </Draggable>
   );
 };
 
