@@ -7,6 +7,10 @@ import { Building, User, Check, Info } from 'lucide-react';
 const B2BToggleSection = () => {
   const [isB2B, setIsB2B] = useState(false);
 
+  const handleToggle = (checked: boolean) => {
+    setIsB2B(checked);
+  };
+
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
@@ -28,7 +32,7 @@ const B2BToggleSection = () => {
           
           <Switch
             checked={isB2B}
-            onCheckedChange={setIsB2B}
+            onCheckedChange={handleToggle}
             className="data-[state=checked]:bg-orange-500"
           />
           

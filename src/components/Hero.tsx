@@ -1,16 +1,56 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Truck, Home, Wrench, Package, CheckCircle } from 'lucide-react';
 
 const Hero = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+
   const factorySteps = [
-    { icon: Wrench, label: 'Crafting', description: 'Expert craftsmen create each piece' },
-    { icon: Package, label: 'Packing', description: 'Carefully packed for safe delivery' },
-    { icon: Truck, label: 'Shipping', description: 'Direct transportation to you' },
-    { icon: Home, label: 'Delivered', description: 'Arrives at your doorstep' },
-    { icon: CheckCircle, label: 'Satisfied', description: '100-day trial guarantee' }
+    { 
+      icon: Wrench, 
+      label: 'Crafting', 
+      description: 'Expert craftsmen create each piece',
+      image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      bgColor: 'from-blue-500 to-blue-600'
+    },
+    { 
+      icon: Package, 
+      label: 'Packing', 
+      description: 'Carefully packed for safe delivery',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      bgColor: 'from-green-500 to-green-600'
+    },
+    { 
+      icon: Truck, 
+      label: 'Shipping', 
+      description: 'Direct transportation to you',
+      image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      bgColor: 'from-yellow-500 to-yellow-600'
+    },
+    { 
+      icon: Home, 
+      label: 'Delivered', 
+      description: 'Arrives at your doorstep',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      bgColor: 'from-purple-500 to-purple-600'
+    },
+    { 
+      icon: CheckCircle, 
+      label: 'Satisfied', 
+      description: '100-day trial guarantee',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      bgColor: 'from-kurchi-red to-red-600'
+    }
   ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % factorySteps.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-kurchi-cream via-white to-kurchi-saffron/20">
@@ -76,26 +116,59 @@ const Hero = () => {
           {/* Enhanced Factory Animation */}
           <div className="order-1 lg:order-2">
             <div className="relative">
-              {/* Main Factory Image */}
-              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl border border-kurchi-saffron/30">
-                <img
-                  src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="KURCHI Factory"
-                  className="w-full h-48 md:h-64 lg:h-80 object-cover rounded-2xl"
-                />
+              {/* Main Animated Image */}
+              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl border border-kurchi-saffron/30 overflow-hidden">
+                <div className="relative h-48 md:h-64 lg:h-80 rounded-2xl overflow-hidden">
+                  <img
+                    src={factorySteps[currentStep].image}
+                    alt={factorySteps[currentStep].label}
+                    className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
+                  />
+                  
+                  {/* Overlay with step info */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="text-white p-4 w-full">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <div className={`w-10 h-10 bg-gradient-to-r ${factorySteps[currentStep].bgColor} rounded-full flex items-center justify-center`}>
+                          {React.createElement(factorySteps[currentStep].icon, { className: "h-5 w-5 text-white" })}
+                        </div>
+                        <h3 className="text-xl font-bold">{factorySteps[currentStep].label}</h3>
+                      </div>
+                      <p className="text-sm opacity-90">{factorySteps[currentStep].description}</p>
+                    </div>
+                  </div>
+                </div>
                 
-                {/* Animated Process Steps */}
+                {/* Animated Process Steps - Bottom Navigation */}
                 <div className="absolute -bottom-4 left-4 right-4">
                   <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 md:p-4 shadow-xl border border-kurchi-saffron/30">
                     <div className="flex justify-between items-center">
                       {factorySteps.map((step, index) => {
                         const IconComponent = step.icon;
+                        const isActive = index === currentStep;
+                        const isPassed = index < currentStep;
+                        
                         return (
-                          <div key={index} className="text-center group">
-                            <div className={`w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-kurchi-red to-kurchi-red-muted rounded-full flex items-center justify-center mb-1 md:mb-2 transition-all duration-300 animate-pulse`} style={{ animationDelay: `${index * 0.5}s` }}>
-                              <IconComponent className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                          <div key={index} className="text-center group flex-1">
+                            <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center mb-1 md:mb-2 transition-all duration-500 mx-auto ${
+                              isActive 
+                                ? `bg-gradient-to-r ${step.bgColor} scale-110 shadow-lg` 
+                                : isPassed 
+                                  ? 'bg-green-500' 
+                                  : 'bg-gray-300'
+                            }`}>
+                              <IconComponent className={`h-3 w-3 md:h-4 md:w-4 ${isActive || isPassed ? 'text-white' : 'text-gray-600'}`} />
                             </div>
-                            <span className="text-xs font-medium text-kurchi-navy hidden md:block">{step.label}</span>
+                            <span className={`text-xs font-medium ${isActive ? 'text-kurchi-red' : 'text-gray-600'} hidden md:block`}>
+                              {step.label}
+                            </span>
+                            
+                            {/* Progress line */}
+                            {index < factorySteps.length - 1 && (
+                              <div className={`absolute top-4 md:top-5 left-1/2 w-8 md:w-12 h-0.5 transform -translate-x-1/2 transition-colors duration-500 ${
+                                isPassed ? 'bg-green-500' : 'bg-gray-300'
+                              }`} style={{ left: `${((index + 1) / factorySteps.length) * 100}%` }}></div>
+                            )}
                           </div>
                         );
                       })}
