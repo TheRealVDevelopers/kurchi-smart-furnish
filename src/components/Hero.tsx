@@ -18,7 +18,7 @@ const Hero = () => {
       icon: Package, 
       label: 'Packing', 
       description: 'Carefully packed for safe delivery',
-      image: 'https://thumbs.dreamstime.com/b/movers-packing-products-living-room-portrait-young-male-mover-cardboard-boxes-210625065.jpg',
+      image: 'https://thumbs.dreamstime.com/b/movers-carrying-sofa-outside-truck-street-full-length-young-male-77511013.jpg',
       bgColor: 'from-green-500 to-green-600'
     },
     { 
@@ -39,7 +39,7 @@ const Hero = () => {
       icon: CheckCircle, 
       label: 'Satisfied', 
       description: '100-day trial guarantee',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://thumbs.dreamstime.com/b/professional-movers-doing-home-relocation-148454825.jpg',
       bgColor: 'from-kurchi-red to-red-600'
     }
   ];
