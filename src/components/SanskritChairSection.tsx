@@ -66,7 +66,7 @@ const SanskritChairSection = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#E6F2E6' }}>
+    <section className="py-20 relative overflow-hidden bg-green-100">
       {/* Enhanced Cultural Background with Herbal Elements */}
       <div className="absolute inset-0 opacity-5">
         {/* Lotus Pattern Background */}
@@ -109,7 +109,7 @@ const SanskritChairSection = () => {
             <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-12 bg-gradient-to-r from-amber-200 to-orange-200 rounded-full opacity-70"></div>
             
             <span className="text-4xl animate-pulse">🪷</span>
-            <span className="font-sanskrit text-2xl text-gray-900 font-semibold">प्राचीन भारतीय परंपरा</span>
+            <span className="font-sanskrit text-2xl text-gray-800 font-semibold">प्राचीन भारतीय परंपरा</span>
             <span className="text-4xl animate-pulse delay-500">🪷</span>
           </div>
           
