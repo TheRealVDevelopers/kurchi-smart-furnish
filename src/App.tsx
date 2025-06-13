@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import Index from "./pages/Index";
 import Categories from "./pages/Categories";
+import ProductDetails from "./pages/ProductDetails";
+import JoinEarn from "./pages/JoinEarn";
 import Search from "./pages/Search";
 import Wishlist from "./pages/Wishlist";
 import Profile from "./pages/Profile";
@@ -24,6 +26,8 @@ const AppContent = () => {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/categories" element={<Categories />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
+      <Route path="/join-earn" element={<JoinEarn />} />
       <Route path="/search" element={<Search />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/profile" element={<Profile />} />
