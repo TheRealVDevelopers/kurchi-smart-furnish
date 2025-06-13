@@ -76,13 +76,13 @@ const SanskritChairSection = () => {
         
         {/* Floating Herbs Animation */}
         <div className="absolute top-20 left-10 w-16 h-16 opacity-20 animate-pulse">
-          <svg viewBox="0 0 100 100" className="w-full h-full fill-green-600">
+          <svg viewBox="0 0 100 100" className="w-full h-full fill-current text-gray-600">
             <path d="M50 10 C30 30, 30 70, 50 90 C70 70, 70 30, 50 10 Z" />
             <circle cx="50" cy="30" r="3" fill="gold" />
           </svg>
         </div>
         <div className="absolute bottom-32 right-16 w-12 h-12 opacity-20 animate-pulse delay-1000">
-          <svg viewBox="0 0 100 100" className="w-full h-full fill-green-700">
+          <svg viewBox="0 0 100 100" className="w-full h-full fill-current text-gray-700">
             <path d="M50 20 C35 35, 35 65, 50 80 C65 65, 65 35, 50 20 Z" />
           </svg>
         </div>
@@ -109,7 +109,7 @@ const SanskritChairSection = () => {
             <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-12 bg-gradient-to-r from-amber-200 to-orange-200 rounded-full opacity-70"></div>
             
             <span className="text-4xl animate-pulse">🪷</span>
-            <span className="font-sanskrit text-2xl text-gray-800 font-semibold">प्राचीन भारतीय परंपरा</span>
+            <span className="font-sanskrit text-2xl text-gray-900 font-semibold">प्राचीन भारतीय परंपरा</span>
             <span className="text-4xl animate-pulse delay-500">🪷</span>
           </div>
           
@@ -117,7 +117,7 @@ const SanskritChairSection = () => {
             <span className="text-gray-900">कुर्ची – </span>
             <span className="font-sanskrit text-5xl md:text-7xl text-kurchi-red drop-shadow-sm">संस्कृत में</span>
           </h2>
-          <h3 className="text-3xl md:text-5xl font-sanskrit text-gray-800 mb-8 drop-shadow-sm">
+          <h3 className="text-3xl md:text-5xl font-sanskrit text-gray-900 mb-8 drop-shadow-sm">
             हर कुर्सी का नाम है
           </h3>
           

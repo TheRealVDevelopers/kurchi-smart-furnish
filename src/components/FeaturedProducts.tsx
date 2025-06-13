@@ -57,7 +57,20 @@ const FeaturedProducts = () => {
   ];
 
   const handleProductClick = (productId: number) => {
+    console.log('Navigating to product:', productId);
     navigate(`/product/${productId}`);
+  };
+
+  const handleAddToCart = (e: React.MouseEvent, productId: number) => {
+    e.stopPropagation();
+    console.log('Add to cart:', productId);
+    // Add to cart logic here
+  };
+
+  const handleAddToWishlist = (e: React.MouseEvent, productId: number) => {
+    e.stopPropagation();
+    console.log('Add to wishlist:', productId);
+    // Add to wishlist logic here
   };
 
   return (
@@ -109,10 +122,7 @@ const FeaturedProducts = () => {
                     <Button 
                       size="sm" 
                       className="flex-1 bg-kurchi-red hover:bg-kurchi-red-muted text-white text-xs"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Add to cart logic
-                      }}
+                      onClick={(e) => handleAddToCart(e, product.id)}
                     >
                       <ShoppingCart className="h-3 w-3 mr-1" />
                       Add to Cart
@@ -121,10 +131,7 @@ const FeaturedProducts = () => {
                       size="sm" 
                       variant="outline" 
                       className="px-3 bg-white/90 hover:bg-white border-white"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Add to wishlist logic
-                      }}
+                      onClick={(e) => handleAddToWishlist(e, product.id)}
                     >
                       <Heart className="h-3 w-3" />
                     </Button>
@@ -169,7 +176,12 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="px-8 py-3 border-2 border-kurchi-red text-kurchi-red hover:bg-kurchi-red hover:text-white transition-colors">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="px-8 py-3 border-2 border-kurchi-red text-kurchi-red hover:bg-kurchi-red hover:text-white transition-colors"
+            onClick={() => navigate('/categories')}
+          >
             View All Products
           </Button>
         </div>

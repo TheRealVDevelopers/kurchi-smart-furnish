@@ -15,6 +15,7 @@ import KBuddyCTASection from '@/components/KBuddyCTASection';
 import CustomRequestSection from '@/components/CustomRequestSection';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
+import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
   return (
@@ -36,6 +37,7 @@ const Index = () => {
       </main>
       <Footer />
       <ChatWidget />
+      <ScrollToTop />
     </div>
   );
 };

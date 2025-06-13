@@ -67,16 +67,16 @@ const Hero = () => {
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Enhanced Hashtag Section */}
             <div className="mb-6 md:mb-8">
-              <div className="inline-flex items-center bg-gradient-to-r from-kurchi-red/10 to-kurchi-saffron/20 px-4 md:px-6 py-2 md:py-3 rounded-full border border-kurchi-saffron/30 mb-4 animate-bounce">
-                <span className="text-kurchi-red font-bold text-lg md:text-xl">#ManufactureToCustomer</span>
+              <div className="inline-flex items-center bg-gradient-to-r from-kurchi-red/10 to-kurchi-saffron/20 px-6 md:px-8 py-3 md:py-4 rounded-full border-2 border-kurchi-saffron/40 mb-4 animate-bounce shadow-lg">
+                <span className="text-kurchi-red font-bold text-xl md:text-2xl">#ManufactureToCustomer</span>
               </div>
-              <p className="text-kurchi-navy/70 text-sm md:text-base font-medium">
+              <p className="text-kurchi-navy/70 text-base md:text-lg font-semibold">
                 Direct from our factory floor to your door
               </p>
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-kurchi-navy mb-4 md:mb-6 leading-tight">
-              Premium <span className="font-sanskrit text-kurchi-red">कुर्ची</span>
+              Premium <span className="font-sanskrit text-kurchi-red">Chair</span>
               <br className="hidden md:block" />
               <span className="text-kurchi-red">Direct From Factory</span>
             </h1>
@@ -149,7 +149,7 @@ const Hero = () => {
                         const isPassed = index < currentStep;
                         
                         return (
-                          <div key={index} className="text-center group flex-1">
+                          <div key={index} className="text-center group flex-1 relative">
                             <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center mb-1 md:mb-2 transition-all duration-500 mx-auto ${
                               isActive 
                                 ? `bg-gradient-to-r ${step.bgColor} scale-110 shadow-lg` 
@@ -165,9 +165,9 @@ const Hero = () => {
                             
                             {/* Progress line */}
                             {index < factorySteps.length - 1 && (
-                              <div className={`absolute top-4 md:top-5 left-1/2 w-8 md:w-12 h-0.5 transform -translate-x-1/2 transition-colors duration-500 ${
+                              <div className={`absolute top-4 md:top-5 left-full w-full h-0.5 transform transition-colors duration-500 ${
                                 isPassed ? 'bg-green-500' : 'bg-gray-300'
-                              }`} style={{ left: `${((index + 1) / factorySteps.length) * 100}%` }}></div>
+                              }`}></div>
                             )}
                           </div>
                         );
