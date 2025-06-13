@@ -11,7 +11,7 @@ const Hero = () => {
       icon: Wrench, 
       label: 'Crafting', 
       description: 'Expert craftsmen create each piece',
-      image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://images.jdmagicbox.com/quickquotes/listicle/listicle_1702888416853_cwwec_847x400.jpg',
       bgColor: 'from-blue-500 to-blue-600'
     },
     { 
