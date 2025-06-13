@@ -66,7 +66,7 @@ const SanskritChairSection = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden bg-green-900">
+    <section className="py-20 relative overflow-hidden bg-green-400">
       {/* Enhanced Cultural Background with Herbal Elements */}
       <div className="absolute inset-0 opacity-5">
         {/* Lotus Pattern Background */}
