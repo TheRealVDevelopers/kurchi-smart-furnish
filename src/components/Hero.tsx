@@ -25,7 +25,7 @@ const Hero = () => {
       icon: Truck, 
       label: 'Shipping', 
       description: 'Direct transportation to you',
-      image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://www.shutterstock.com/shutterstock/videos/1102409691/thumb/1.jpg?ip=x480',
       bgColor: 'from-yellow-500 to-yellow-600'
     },
     { 
