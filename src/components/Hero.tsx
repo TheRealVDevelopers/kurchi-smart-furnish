@@ -18,28 +18,28 @@ const Hero = () => {
       icon: Package, 
       label: 'Packing', 
       description: 'Carefully packed for safe delivery',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOx_urVM3PqvK_qT3Lvzoem6STmSGt0qCKoA&s',
+      image: 'https://thumbs.dreamstime.com/b/movers-packing-products-living-room-portrait-young-male-mover-cardboard-boxes-210625065.jpg',
       bgColor: 'from-green-500 to-green-600'
     },
     { 
       icon: Truck, 
       label: 'Shipping', 
       description: 'Direct transportation to you',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGPf9zUftfosVuH2_-xv5ijjy6vGRJZXYzdzCCYV4n75SdV5CIjA27-b54FyyXQF_qF5w&usqp=CAU',
+      image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       bgColor: 'from-yellow-500 to-yellow-600'
     },
     { 
       icon: Home, 
       label: 'Delivered', 
       description: 'Arrives at your doorstep',
-      image: 'https://thumbs.dreamstime.com/b/movers-unloading-furniture-truck-young-male-cardboard-boxes-street-77511949.jpg',
+      image: 'https://thumbs.dreamstime.com/b/stunning-image-truck-van-full-moving-cardboard-boxes-furniture-relocation-new-home-high-resolution-381005473.jpg',
       bgColor: 'from-purple-500 to-purple-600'
     },
     { 
       icon: CheckCircle, 
       label: 'Satisfied', 
       description: '100-day trial guarantee',
-      image: 'https://thumbs.dreamstime.com/b/professional-movers-doing-home-relocation-148454825.jpg',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       bgColor: 'from-kurchi-red to-red-600'
     }
   ];
