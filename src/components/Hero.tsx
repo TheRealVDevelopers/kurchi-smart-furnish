@@ -11,35 +11,35 @@ const Hero = () => {
       icon: Wrench, 
       label: 'Crafting', 
       description: 'Expert craftsmen create each piece',
-      image: 'https://images.jdmagicbox.com/quickquotes/listicle/listicle_1702888416853_cwwec_847x400.jpg',
+      image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
       bgColor: 'from-blue-500 to-blue-600'
     },
     { 
       icon: Package, 
       label: 'Packing', 
       description: 'Carefully packed for safe delivery',
-      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOx_urVM3PqvK_qT3Lvzoem6STmSGt0qCKoA&s',
       bgColor: 'from-green-500 to-green-600'
     },
     { 
       icon: Truck, 
       label: 'Shipping', 
       description: 'Direct transportation to you',
-      image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGPf9zUftfosVuH2_-xv5ijjy6vGRJZXYzdzCCYV4n75SdV5CIjA27-b54FyyXQF_qF5w&usqp=CAU',
       bgColor: 'from-yellow-500 to-yellow-600'
     },
     { 
       icon: Home, 
       label: 'Delivered', 
       description: 'Arrives at your doorstep',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://thumbs.dreamstime.com/b/movers-unloading-furniture-truck-young-male-cardboard-boxes-street-77511949.jpg',
       bgColor: 'from-purple-500 to-purple-600'
     },
     { 
       icon: CheckCircle, 
       label: 'Satisfied', 
       description: '100-day trial guarantee',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://thumbs.dreamstime.com/b/professional-movers-doing-home-relocation-148454825.jpg',
       bgColor: 'from-kurchi-red to-red-600'
     }
   ];
