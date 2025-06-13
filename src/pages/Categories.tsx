@@ -182,11 +182,13 @@ const Categories = () => {
 
                 {/* Search */}
                 <div className="mb-6">
-                  <Input
-                    placeholder="Search categories..."
-                    className="w-full"
-                    icon={<Search className="h-4 w-4" />}
-                  />
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-kurchi-navy/50" />
+                    <Input
+                      placeholder="Search categories..."
+                      className="pl-10 w-full"
+                    />
+                  </div>
                 </div>
 
                 {/* Filter Groups */}
