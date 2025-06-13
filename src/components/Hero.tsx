@@ -11,28 +11,28 @@ const Hero = () => {
       icon: Wrench, 
       label: 'Crafting', 
       description: 'Expert craftsmen create each piece',
-      image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      image: 'https://images.jdmagicbox.com/quickquotes/listicle/listicle_1702888416853_cwwec_847x400.jpg',
       bgColor: 'from-blue-500 to-blue-600'
     },
     { 
       icon: Package, 
       label: 'Packing', 
       description: 'Carefully packed for safe delivery',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOx_urVM3PqvK_qT3Lvzoem6STmSGt0qCKoA&s',
+      image: 'https://thumbs.dreamstime.com/b/movers-carrying-sofa-outside-truck-street-full-length-young-male-77511013.jpg',
       bgColor: 'from-green-500 to-green-600'
     },
     { 
       icon: Truck, 
       label: 'Shipping', 
       description: 'Direct transportation to you',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGPf9zUftfosVuH2_-xv5ijjy6vGRJZXYzdzCCYV4n75SdV5CIjA27-b54FyyXQF_qF5w&usqp=CAU',
+      image: 'https://www.shutterstock.com/shutterstock/videos/1102409691/thumb/1.jpg?ip=x480',
       bgColor: 'from-yellow-500 to-yellow-600'
     },
     { 
       icon: Home, 
       label: 'Delivered', 
       description: 'Arrives at your doorstep',
-      image: 'https://thumbs.dreamstime.com/b/movers-unloading-furniture-truck-young-male-cardboard-boxes-street-77511949.jpg',
+      image: 'https://thumbs.dreamstime.com/b/stunning-image-truck-van-full-moving-cardboard-boxes-furniture-relocation-new-home-high-resolution-381005473.jpg',
       bgColor: 'from-purple-500 to-purple-600'
     },
     { 
