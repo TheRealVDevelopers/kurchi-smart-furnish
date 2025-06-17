@@ -66,7 +66,7 @@ const SanskritChairSection = () => {
   };
 
   return (
-    <section className="py-12 bg-green-600 relative overflow-hidden">
+    <section className="py-8 bg-green-700 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -76,29 +76,29 @@ const SanskritChairSection = () => {
 
       <div className="container mx-auto px-4 relative">
         {/* Compact Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center space-x-4 bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full mb-3 border border-amber-300 shadow-lg">
-            <span className="text-xl">🪷</span>
-            <span className="font-sanskrit text-base text-gray-800 font-semibold">प्राचीन भारतीय परंपरा</span>
-            <span className="text-xl">🪷</span>
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center space-x-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full mb-2 border border-amber-300 shadow-lg">
+            <span className="text-lg">🪷</span>
+            <span className="font-sanskrit text-sm text-gray-800 font-semibold">प्राचीन भारतीय परंपरा</span>
+            <span className="text-lg">🪷</span>
           </div>
           
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">
+          <h2 className="text-xl md:text-2xl font-bold mb-1">
             <span className="text-white">कुर्ची – </span>
-            <span className="font-sanskrit text-3xl text-yellow-300 drop-shadow-sm">संस्कृत में</span>
+            <span className="font-sanskrit text-2xl text-yellow-300 drop-shadow-sm">संस्कृत में</span>
           </h2>
-          <p className="text-base text-green-50 max-w-xl mx-auto">
+          <p className="text-sm text-green-50 max-w-lg mx-auto">
             Discover the ancient Indian wisdom of seating arrangements
           </p>
         </div>
 
         {/* Compact Product Grid - Single Row */}
-        <div className="flex overflow-x-auto gap-4 pb-4 mb-6 scrollbar-hide">
+        <div className="flex overflow-x-auto gap-3 pb-3 mb-4 scrollbar-hide">
           {chairTypes.map((chair, index) => {
             const IconComponent = chair.icon;
             return (
-              <div key={chair.id} className="flex-shrink-0 w-56">
-                <Card className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white/95 backdrop-blur-sm border border-amber-200 hover:border-amber-400 h-full" onClick={() => handleCardClick(chair.id)}>
+              <div key={chair.id} className="flex-shrink-0 w-48">
+                <Card className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white/95 backdrop-blur-sm border border-amber-200 hover:border-amber-400 h-full" onClick={() => handleCardClick(chair.id)}>
                   <div className="relative aspect-square overflow-hidden">
                     <img
                       src={chair.image}
@@ -107,10 +107,10 @@ const SanskritChairSection = () => {
                     />
                     
                     <div className="absolute top-2 left-2 bg-amber-100 text-amber-900 px-2 py-1 rounded-full text-xs font-medium shadow-md border border-amber-300">
-                      <span className="font-sanskrit text-sm font-semibold">{chair.sanskritName.split(' ')[0]}</span>
+                      <span className="font-sanskrit text-xs font-semibold">{chair.sanskritName.split(' ')[0]}</span>
                     </div>
                     
-                    <div className={`absolute top-2 right-2 w-7 h-7 bg-gradient-to-r ${chair.gradient} rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                    <div className={`absolute top-2 right-2 w-6 h-6 bg-gradient-to-r ${chair.gradient} rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
                       <IconComponent className="h-3 w-3 text-white" />
                     </div>
                     
@@ -123,14 +123,14 @@ const SanskritChairSection = () => {
                     </div>
                   </div>
                   
-                  <div className="p-3 bg-white">
-                    <h3 className="font-sanskrit text-sm text-gray-900 mb-1 text-center bg-amber-50 py-1 px-2 rounded-lg border border-amber-200">
+                  <div className="p-2 bg-white">
+                    <h3 className="font-sanskrit text-xs text-gray-900 mb-1 text-center bg-amber-50 py-1 px-2 rounded-lg border border-amber-200">
                       {chair.sanskritName}
                     </h3>
-                    <h4 className="text-sm font-semibold text-kurchi-red text-center mb-1">
+                    <h4 className="text-xs font-semibold text-kurchi-red text-center mb-1">
                       {chair.englishName}
                     </h4>
-                    <p className="text-xs text-gray-600 text-center leading-relaxed mb-2">
+                    <p className="text-xs text-gray-600 text-center leading-relaxed mb-1">
                       {chair.description}
                     </p>
                     
@@ -147,15 +147,15 @@ const SanskritChairSection = () => {
         </div>
         
         <div className="text-center">
-          <Button variant="outline" className="px-6 py-2 border-2 border-white text-white hover:bg-white hover:text-green-600 shadow-lg bg-transparent backdrop-blur-sm font-semibold">
-            <span className="font-sanskrit mr-2 text-base">सभी देखें</span>
+          <Button variant="outline" className="px-4 py-2 border-2 border-white text-white hover:bg-white hover:text-green-700 shadow-lg bg-transparent backdrop-blur-sm font-semibold">
+            <span className="font-sanskrit mr-2 text-sm">सभी देखें</span>
             View All Collections
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
