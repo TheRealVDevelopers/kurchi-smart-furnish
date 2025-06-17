@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { 
   Users, 
   Package, 
@@ -19,13 +20,38 @@ import {
   Eye,
   CheckCircle,
   XCircle,
-  Clock
+  Clock,
+  TrendingUp,
+  DollarSign
 } from 'lucide-react';
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend } from 'recharts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const Admin = () => {
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Chart data
+  const salesData = [
+    { month: 'Jan', sales: 4000, orders: 45 },
+    { month: 'Feb', sales: 3000, orders: 38 },
+    { month: 'Mar', sales: 5000, orders: 52 },
+    { month: 'Apr', sales: 4500, orders: 48 },
+    { month: 'May', sales: 6000, orders: 65 },
+    { month: 'Jun', sales: 5500, orders: 58 },
+  ];
+
+  const categoryData = [
+    { name: 'Chairs', value: 400, color: '#8884d8' },
+    { name: 'Sofas', value: 300, color: '#82ca9d' },
+    { name: 'Recliners', value: 200, color: '#ffc658' },
+    { name: 'Office', value: 100, color: '#ff7c7c' },
+  ];
+
+  const chartConfig = {
+    sales: { label: 'Sales ($)', color: '#8884d8' },
+    orders: { label: 'Orders', color: '#82ca9d' }
+  };
 
   // Mock data
   const orders = [
@@ -85,6 +111,10 @@ const Admin = () => {
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Total Orders</p>
                   <p className="text-2xl font-bold text-gray-900">156</p>
+                  <p className="text-xs text-green-600 flex items-center mt-1">
+                    <TrendingUp className="h-3 w-3 mr-1" />
+                    +12% from last month
+                  </p>
                 </div>
               </div>
             </Card>
@@ -97,6 +127,10 @@ const Admin = () => {
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Products</p>
                   <p className="text-2xl font-bold text-gray-900">48</p>
+                  <p className="text-xs text-blue-600 flex items-center mt-1">
+                    <TrendingUp className="h-3 w-3 mr-1" />
+                    +3 new this week
+                  </p>
                 </div>
               </div>
             </Card>
@@ -109,6 +143,10 @@ const Admin = () => {
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Customers</p>
                   <p className="text-2xl font-bold text-gray-900">89</p>
+                  <p className="text-xs text-green-600 flex items-center mt-1">
+                    <TrendingUp className="h-3 w-3 mr-1" />
+                    +8% growth
+                  </p>
                 </div>
               </div>
             </Card>
@@ -116,13 +154,56 @@ const Admin = () => {
             <Card className="p-6">
               <div className="flex items-center">
                 <div className="p-3 bg-yellow-100 rounded-lg">
-                  <BarChart3 className="h-6 w-6 text-yellow-600" />
+                  <DollarSign className="h-6 w-6 text-yellow-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Revenue</p>
                   <p className="text-2xl font-bold text-gray-900">$12,450</p>
+                  <p className="text-xs text-green-600 flex items-center mt-1">
+                    <TrendingUp className="h-3 w-3 mr-1" />
+                    +15% increase
+                  </p>
                 </div>
               </div>
+            </Card>
+          </div>
+
+          {/* Charts Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-4">Sales & Orders Trend</h3>
+              <ChartContainer config={chartConfig} className="h-[300px]">
+                <LineChart data={salesData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Line type="monotone" dataKey="sales" stroke="#8884d8" strokeWidth={2} />
+                  <Line type="monotone" dataKey="orders" stroke="#82ca9d" strokeWidth={2} />
+                </LineChart>
+              </ChartContainer>
+            </Card>
+
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-4">Product Categories</h3>
+              <ChartContainer config={chartConfig} className="h-[300px]">
+                <PieChart>
+                  <Pie
+                    data={categoryData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  >
+                    {categoryData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <ChartTooltip />
+                </PieChart>
+              </ChartContainer>
             </Card>
           </div>
 

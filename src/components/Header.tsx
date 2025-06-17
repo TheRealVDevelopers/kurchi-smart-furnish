@@ -13,6 +13,11 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const handleCategoryNavigation = (category: string) => {
+    navigate(`/categories?filter=${category.toLowerCase()}`);
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="bg-white shadow-sm border-b border-kurchi-saffron/30 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -28,10 +33,10 @@ const Header = () => {
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Chairs</button>
-            <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Sofas</button>
-            <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Recliners</button>
-            <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Office</button>
+            <button onClick={() => handleCategoryNavigation('chairs')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Chairs</button>
+            <button onClick={() => handleCategoryNavigation('sofas')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Sofas</button>
+            <button onClick={() => handleCategoryNavigation('recliners')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Recliners</button>
+            <button onClick={() => handleCategoryNavigation('office')} className="text-kurchi-navy hover:text-kurchi-red transition-colors font-medium">Office</button>
             <button onClick={() => handleNavigation('/custom-request')} className="text-kurchi-red hover:text-kurchi-red-muted transition-colors font-medium border-b-2 border-kurchi-red/30">Custom</button>
           </nav>
 
@@ -85,10 +90,10 @@ const Header = () => {
                 />
               </div>
               <nav className="flex flex-col space-y-2">
-                <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Chairs</button>
-                <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Sofas</button>
-                <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Recliners</button>
-                <button onClick={() => handleNavigation('/categories')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Office</button>
+                <button onClick={() => handleCategoryNavigation('chairs')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Chairs</button>
+                <button onClick={() => handleCategoryNavigation('sofas')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Sofas</button>
+                <button onClick={() => handleCategoryNavigation('recliners')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Recliners</button>
+                <button onClick={() => handleCategoryNavigation('office')} className="text-kurchi-navy hover:text-kurchi-red transition-colors py-2 text-left font-medium">Office</button>
                 <button onClick={() => handleNavigation('/custom-request')} className="text-kurchi-red hover:text-kurchi-red-muted transition-colors py-2 text-left font-medium">Custom Request</button>
                 <Button variant="outline" className="justify-start border-kurchi-saffron text-kurchi-navy hover:bg-kurchi-cream" onClick={() => handleNavigation('/profile')}>
                   <User className="h-4 w-4 mr-2" />
