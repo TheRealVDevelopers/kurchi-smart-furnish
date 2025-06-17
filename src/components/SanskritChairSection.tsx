@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -66,7 +65,7 @@ const SanskritChairSection = () => {
   };
 
   return (
-    <section className="py-8 bg-green-700 relative overflow-hidden">
+    <section className="py-8 bg-green-500 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -93,11 +92,11 @@ const SanskritChairSection = () => {
         </div>
 
         {/* Compact Product Grid - Single Row */}
-        <div className="flex overflow-x-auto gap-3 pb-3 mb-4 scrollbar-hide">
+        <div className="flex overflow-x-auto gap-4 pb-4 mb-4 scrollbar-hide">
           {chairTypes.map((chair, index) => {
             const IconComponent = chair.icon;
             return (
-              <div key={chair.id} className="flex-shrink-0 w-48">
+              <div key={chair.id} className="flex-shrink-0 w-64">
                 <Card className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white/95 backdrop-blur-sm border border-amber-200 hover:border-amber-400 h-full" onClick={() => handleCardClick(chair.id)}>
                   <div className="relative aspect-square overflow-hidden">
                     <img
@@ -106,36 +105,36 @@ const SanskritChairSection = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     
-                    <div className="absolute top-2 left-2 bg-amber-100 text-amber-900 px-2 py-1 rounded-full text-xs font-medium shadow-md border border-amber-300">
-                      <span className="font-sanskrit text-xs font-semibold">{chair.sanskritName.split(' ')[0]}</span>
+                    <div className="absolute top-3 left-3 bg-amber-100 text-amber-900 px-3 py-1.5 rounded-full text-sm font-medium shadow-md border border-amber-300">
+                      <span className="font-sanskrit text-sm font-semibold">{chair.sanskritName.split(' ')[0]}</span>
                     </div>
                     
-                    <div className={`absolute top-2 right-2 w-6 h-6 bg-gradient-to-r ${chair.gradient} rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
-                      <IconComponent className="h-3 w-3 text-white" />
+                    <div className={`absolute top-3 right-3 w-8 h-8 bg-gradient-to-r ${chair.gradient} rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                      <IconComponent className="h-4 w-4 text-white" />
                     </div>
                     
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
-                    <div className="absolute bottom-2 left-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                      <Button size="sm" className="w-full bg-kurchi-red hover:bg-red-700 text-white text-xs shadow-lg">
+                    <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      <Button size="sm" className="w-full bg-kurchi-red hover:bg-red-700 text-white text-sm shadow-lg">
                         Explore
                       </Button>
                     </div>
                   </div>
                   
-                  <div className="p-2 bg-white">
-                    <h3 className="font-sanskrit text-xs text-gray-900 mb-1 text-center bg-amber-50 py-1 px-2 rounded-lg border border-amber-200">
+                  <div className="p-4 bg-white">
+                    <h3 className="font-sanskrit text-base text-gray-900 mb-2 text-center bg-amber-50 py-2 px-3 rounded-lg border border-amber-200">
                       {chair.sanskritName}
                     </h3>
-                    <h4 className="text-xs font-semibold text-kurchi-red text-center mb-1">
+                    <h4 className="text-sm font-semibold text-kurchi-red text-center mb-2">
                       {chair.englishName}
                     </h4>
-                    <p className="text-xs text-gray-600 text-center leading-relaxed mb-1">
+                    <p className="text-sm text-gray-600 text-center leading-relaxed mb-3">
                       {chair.description}
                     </p>
                     
                     <div className="flex justify-center">
-                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full border border-blue-300 font-medium">
+                      <span className="text-sm bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full border border-blue-300 font-medium">
                         {chair.role}
                       </span>
                     </div>

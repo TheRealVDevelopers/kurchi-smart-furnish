@@ -18,28 +18,28 @@ const Hero = () => {
       icon: Package, 
       label: 'Packing', 
       description: 'Carefully packed for safe delivery',
-      image: 'https://thumbs.dreamstime.com/b/movers-carrying-sofa-outside-truck-street-full-length-young-male-77511013.jpg',
+      image: 'https://5.imimg.com/data5/DI/IA/MY-57118516/packing-service.png',
       bgColor: 'from-green-500 to-green-600'
     },
     { 
       icon: Truck, 
       label: 'Shipping', 
       description: 'Direct transportation to you',
-      image: 'https://www.shutterstock.com/shutterstock/videos/1102409691/thumb/1.jpg?ip=x480',
+      image: 'https://png.pngtree.com/background/20230427/original/pngtree-delivery-truck-in-motion-driving-down-a-street-picture-image_2495825.jpg',
       bgColor: 'from-yellow-500 to-yellow-600'
     },
     { 
       icon: Home, 
       label: 'Delivered', 
       description: 'Arrives at your doorstep',
-      image: 'https://thumbs.dreamstime.com/b/stunning-image-truck-van-full-moving-cardboard-boxes-furniture-relocation-new-home-high-resolution-381005473.jpg',
+      image: 'https://static.vecteezy.com/system/resources/previews/027/843/401/non_2x/a-cargo-truck-with-a-container-is-seen-driving-across-a-bridge-while-a-semi-truck-with-a-cargo-trailer-follows-closely-behind-photo.jpg',
       bgColor: 'from-purple-500 to-purple-600'
     },
     { 
       icon: CheckCircle, 
       label: 'Satisfied', 
       description: '100-day trial guarantee',
-      image: 'https://thumbs.dreamstime.com/b/professional-movers-doing-home-relocation-148454825.jpg',
+      image: 'https://static.vecteezy.com/system/resources/previews/010/319/393/large_2x/happy-asian-family-spending-time-by-watching-tv-together-on-sofa-in-living-room-family-and-home-concept-photo.jpg',
       bgColor: 'from-kurchi-red to-red-600'
     }
   ];
